@@ -156,10 +156,13 @@ end)
 minetest.register_entity("experience:orb", {
 	physical = true,
 	timer = 0,
-	textures = {"orb.png"},
+	textures = {"experience_orb_animated.png"},
 	visual_size = {x=0.3, y=0.3},
 	collisionbox = {-0.17,-0.17,-0.17,0.17,0.17,0.17},
+  spritediv = {x=1, y=16},
+  initial_sprite_basepos = {x=0, y=0},
 	on_activate = function(self, staticdata)
+    self.object:setsprite({x=0,y=0}, 16, 0.1, true)
 		self.object:set_armor_groups({immortal=1})
 		self.object:setvelocity({x=0, y=1, z=0})
 		self.object:setacceleration({x=0, y=-10, z=0})
